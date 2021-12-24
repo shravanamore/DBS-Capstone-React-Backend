@@ -18,9 +18,37 @@ public class Custodian {
 	
 	@Id
 	@Column
-	String custodianId;
+	String id;
 	
 	@Column
 	String custodianName;
+
+	public Custodian(String id, String custodianName) {
+		super();
+		this.id = id;
+		this.custodianName = custodianName;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getCustodianName() {
+		return custodianName;
+	}
+
+	public void setCustodianName(String custodianName) {
+		this.custodianName = custodianName;
+	}
+
+	@Override
+	public String toString() {
+		return "Custodian [id=" + id + ", custodianName=" + custodianName + "]";
+	}
+	
 	
 }

@@ -20,7 +20,7 @@ public class Instrument {
 	
 	@Id
 	@Column
-	String instrumentId;
+	String id;
 	
 	@Column
 	String instrumentName;
@@ -29,9 +29,53 @@ public class Instrument {
 	int faceValue;
 	
 	@Column
-	double price;
-	
-	@Column
 	Date expiryDate;
+
+	public Instrument(String id, String instrumentName, int faceValue, Date expiryDate) {
+		super();
+		this.id = id;
+		this.instrumentName = instrumentName;
+		this.faceValue = faceValue;
+		this.expiryDate = expiryDate;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getInstrumentName() {
+		return instrumentName;
+	}
+
+	public void setInstrumentName(String instrumentName) {
+		this.instrumentName = instrumentName;
+	}
+
+	public int getFaceValue() {
+		return faceValue;
+	}
+
+	public void setFaceValue(int faceValue) {
+		this.faceValue = faceValue;
+	}
+
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Instrument [id=" + id + ", instrumentName=" + instrumentName + ", faceValue=" + faceValue
+				+ ", expiryDate=" + expiryDate + "]";
+	}
+	
 	
 }

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,17 +21,18 @@ import lombok.NoArgsConstructor;
 public class Client {
 	
 	@Id
-	@Column(name = "id")
-	String clientId;
+	@Column
+	String id;
 	
-	@Column(name = "clientName")
+	@Column
 	String clientName;
 	
 	@ManyToOne(optional = false)
+	@JoinColumn(name = "custodian_id")
 	Custodian custodian;
 	
-	@Column(name = "price")
-	double price;
+	@Column
+	double transactionLimit;
 	
 
 	public Client() {
@@ -38,20 +40,20 @@ public class Client {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Client(String clientId, String clientName, Custodian custodian, double price) {
+	public Client(String id, String clientName, Custodian custodian, double transactionLimit) {
 		super();
-		this.clientId = clientId;
+		this.id = id;
 		this.clientName = clientName;
 		this.custodian = custodian;
-		this.price = price;
+		this.transactionLimit = transactionLimit;
 	}
 
-	public String getClientId() {
-		return clientId;
+	public String getId() {
+		return id;
 	}
 
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getClientName() {
@@ -70,18 +72,18 @@ public class Client {
 		this.custodian = custodian;
 	}
 
-	public double getPrice() {
-		return price;
+	public double getTransactionLimit() {
+		return transactionLimit;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setTransactionLimit(double transactionLimit) {
+		this.transactionLimit = transactionLimit;
 	}
 
 	@Override
 	public String toString() {
-		return "Client [clientId=" + clientId + ", clientName=" + clientName + ", custodian=" + custodian + ", price="
-				+ price + "]";
+		return "Client [clientId=" + id + ", clientName=" + clientName + ", custodian=" + custodian + ", price="
+				+ transactionLimit + "]";
 	}
 	
 	
